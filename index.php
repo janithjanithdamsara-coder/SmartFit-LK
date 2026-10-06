@@ -340,11 +340,15 @@ require_once __DIR__ . '/includes/header.php';
                                 <!-- Category Recommendation Pills -->
                                 <div class="p-2 bg-dark rounded border border-dark text-start">
                                     <div class="text-muted small mb-1 fw-bold" style="font-size: 0.7rem;">RECOMMENDED BY CLOTHING TYPE:</div>
-                                    <div class="d-flex flex-wrap gap-1">
+                                    <div class="d-flex flex-wrap gap-1 mb-2">
                                         <span class="category-fit-pill">👕 Tee: <strong class="text-neon ms-1" id="recTshirtSize">M</strong></span>
                                         <span class="category-fit-pill">👔 Polo: <strong class="text-cyan ms-1" id="recPoloSize">M</strong></span>
                                         <span class="category-fit-pill">🧥 Hoodie: <strong class="text-warning ms-1" id="recHoodieSize">L</strong></span>
                                     </div>
+                                    <button id="saveFitToProfileBtn" class="btn btn-outline-cyber btn-sm w-100 py-1 d-flex align-items-center justify-content-center gap-2" style="font-size: 0.8rem;" onclick="SmartFitAuth.saveFitProfile()">
+                                        <i class="fa-solid fa-cloud-arrow-up text-neon"></i>
+                                        <span>Save to My Profile</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -538,6 +542,10 @@ require_once __DIR__ . '/includes/header.php';
                                     <i class="fa-solid fa-download me-1"></i> Save Fit Photo
                                 </button>
                             </div>
+                            <button class="btn btn-outline-cyber btn-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2" onclick="SmartFitAuth.toggleWardrobe(SmartFitTryOn.currentItem ? SmartFitTryOn.currentItem.id : 0, SmartFitSizeEngine.currentResult ? SmartFitSizeEngine.currentResult.recommended_size : 'M')">
+                                <i class="fa-solid fa-bookmark text-warning"></i>
+                                <span>Save Look to My Wardrobe</span>
+                            </button>
                             <a id="tryonWhatsAppBtn" href="https://wa.me/94771234567?text=Hi%20SmartFit%20AI,%20I%20would%20like%20to%20order%20this%20apparel!" target="_blank" class="btn btn-success btn-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2">
                                 <i class="fa-brands fa-whatsapp fs-6"></i>
                                 <span>Order This Look via WhatsApp</span>
@@ -608,6 +616,181 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+<!-- ========================================== -->
+<!-- 5. CUSTOMER AUTH MODAL (LOGIN / REGISTER)  -->
+<!-- ========================================== -->
+<div class="modal fade" id="authCustomerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card border-secondary text-light">
+            <div class="modal-header border-secondary">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="brand-badge"><i class="fa-solid fa-circle-user text-neon"></i></div>
+                    <div>
+                        <h5 class="modal-title mb-0 fw-bold">SmartFit LK Account</h5>
+                        <small class="text-secondary" style="font-size: 0.75rem;">Save Your Fit Profile &amp; Wardrobe</small>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            
+            <div class="modal-body p-4">
+                <ul class="nav nav-pills custom-pills mb-3 justify-content-center" role="tablist">
+                    <li class="nav-item flex-fill">
+                        <button class="nav-link active w-100" data-bs-toggle="pill" data-bs-target="#authLoginTab">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
+                        </button>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <button class="nav-link w-100" data-bs-toggle="pill" data-bs-target="#authRegTab">
+                            <i class="fa-solid fa-user-plus me-1"></i> Create Account
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Sign In Tab -->
+                    <div class="tab-pane fade show active" id="authLoginTab">
+                        <div id="authLoginAlert" class="d-none"></div>
+                        <form onsubmit="SmartFitAuth.handleLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Email Address</label>
+                                <input type="email" id="authLoginEmail" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Password</label>
+                                <input type="password" id="authLoginPassword" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="Enter your password" required>
+                            </div>
+                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold">
+                                <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
+                            </button>
+                        </form>
+                        <div class="text-center mt-3 small text-muted">
+                            Demo Account: <span class="text-neon">demo@smartfit.lk</span> / <span class="text-info">demo123</span>
+                        </div>
+                    </div>
+
+                    <!-- Register Tab -->
+                    <div class="tab-pane fade" id="authRegTab">
+                        <div id="authRegAlert" class="d-none"></div>
+                        <form onsubmit="SmartFitAuth.handleRegister(event)">
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Full Name</label>
+                                <input type="text" id="authRegName" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="e.g. Sandes Thameesha" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Email Address</label>
+                                <input type="email" id="authRegEmail" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Password (Min. 6 chars)</label>
+                                <input type="password" id="authRegPassword" class="form-control bg-dark text-light border-secondary shadow-none" minlength="6" placeholder="Create a secure password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Gender / Apparel Preference</label>
+                                <select id="authRegGender" class="form-select bg-dark text-light border-secondary shadow-none">
+                                    <option value="mens">Men's Apparel</option>
+                                    <option value="womens">Women's Apparel</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold">
+                                <i class="fa-solid fa-user-plus me-1"></i> Create Free Account
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 6. CUSTOMER FIT PROFILE MODAL              -->
+<!-- ========================================== -->
+<div class="modal fade" id="customerProfileModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card border-secondary text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-bold d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-id-card text-neon"></i>
+                    <span>My AI Fit Profile</span>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center mb-4">
+                    <div class="display-5 text-neon mb-2"><i class="fa-solid fa-circle-user"></i></div>
+                    <h5 class="fw-bold text-white mb-0" id="profName">User</h5>
+                    <div class="text-secondary small" id="profEmail">user@example.com</div>
+                    <span class="badge bg-secondary mt-1" id="profGender">Men's</span>
+                </div>
+
+                <div class="p-3 bg-dark rounded border border-dark text-center mb-3">
+                    <div class="text-muted small fw-bold tracking-wider">SAVED RECOMMENDED SIZE</div>
+                    <div id="profSize" class="size-hero-letter text-neon my-1" style="font-size: 3.5rem; font-weight: 800; line-height: 1;">M</div>
+                    <small class="text-muted">Automatically applied across Store &amp; Try-On</small>
+                </div>
+
+                <div class="row g-2 small">
+                    <div class="col-6">
+                        <div class="p-2 bg-dark rounded border border-dark">
+                            <span class="text-muted">Height:</span>
+                            <strong class="text-white d-block" id="profHeight">174 cm</strong>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 bg-dark rounded border border-dark">
+                            <span class="text-muted">Shoulder Frame:</span>
+                            <strong class="text-white d-block" id="profShoulder">44.5 cm</strong>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 bg-dark rounded border border-dark">
+                            <span class="text-muted">Body Build:</span>
+                            <strong class="text-white d-block" id="profBuild">Regular Athletic</strong>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 bg-dark rounded border border-dark">
+                            <span class="text-muted">Fit Style:</span>
+                            <strong class="text-white d-block" id="profFitPref">REGULAR</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button class="btn btn-outline-cyber btn-sm flex-fill" data-bs-dismiss="modal" onclick="openScannerModal()">
+                        <i class="fa-solid fa-camera-viewfinder me-1 text-neon"></i> Re-Scan with AI Camera
+                    </button>
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 7. CUSTOMER VIRTUAL WARDROBE MODAL        -->
+<!-- ========================================== -->
+<div class="modal fade" id="customerWardrobeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content glass-card border-secondary text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-bold d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-shirt text-warning"></i>
+                    <span>My Virtual Wardrobe</span>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-muted small mb-3">Saved clothing looks from your virtual fitting room sessions:</div>
+                <div id="wardrobeItemsContainer" class="row g-3">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

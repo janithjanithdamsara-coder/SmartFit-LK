@@ -87,11 +87,11 @@
     <footer class="footer-smart text-light py-5 mt-5 border-top border-secondary">
         <div class="container text-center">
             <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
-                <span class="brand-title">SMART<span class="text-neon">FIT</span> AI</span>
-                <span class="badge bg-neon-glow text-dark px-2 py-1 small">v2.4 Pose Engine</span>
+                <span class="brand-title">SMART<span class="text-neon">FIT</span> <span class="badge bg-primary text-white ms-1" style="font-size:0.65rem;">LK</span></span>
+                <span class="badge bg-neon-glow text-dark px-2 py-1 small">IntelliCon '26 Edition</span>
             </div>
             <p class="text-secondary small max-w-600 mx-auto">
-                Next-generation Artificial Intelligence clothing sizing, real-time MediaPipe computer vision body posture diagnostics, and 2D/3D virtual try-on engine.
+                AI-assisted body fit profile, anthropometric pose diagnostics, lowest price clothing matching, and 2D virtual fitting preview.
             </p>
             <div class="d-flex justify-content-center gap-3 my-3">
                 <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>index.php" class="text-muted text-decoration-none small hover-neon">Store</a>
@@ -99,7 +99,7 @@
                 <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>admin/index.php" class="text-muted text-decoration-none small hover-neon">Admin Console</a>
             </div>
             <div class="text-muted small border-top border-dark pt-3 mt-3">
-                &copy; <?= date('Y') ?> SmartFit AI Clothing System. Inspired by Carnage Apparel Sri Lanka.
+                &copy; <?= date('Y') ?> SmartFit LK. Built for IntelliCon '26 (AIESEC in SLIIT).
             </div>
         </div>
     </footer>
@@ -111,6 +111,7 @@
     <script src="<?= isset($assetPrefix) ? $assetPrefix : '' ?>assets/js/mediapipe_scanner.js?v=<?= time() ?>"></script>
     <script src="<?= isset($assetPrefix) ? $assetPrefix : '' ?>assets/js/size_engine.js?v=<?= time() ?>"></script>
     <script src="<?= isset($assetPrefix) ? $assetPrefix : '' ?>assets/js/tryon_canvas.js?v=<?= time() ?>"></script>
+    <script src="<?= isset($assetPrefix) ? $assetPrefix : '' ?>assets/js/customer_auth.js?v=<?= time() ?>"></script>
     <script src="<?= isset($assetPrefix) ? $assetPrefix : '' ?>assets/js/app.js?v=<?= time() ?>"></script>
 </body>
 </html>

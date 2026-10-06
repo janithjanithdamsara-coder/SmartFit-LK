@@ -93,9 +93,32 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <span>Scan My Size</span>
                     </button>
                     
+                    <!-- Customer Account / Sign In -->
+                    <div id="navCustomerContainer">
+                        <?php if (!empty($_SESSION['customer_id'])): ?>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-cyber btn-sm dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-circle-user text-neon fs-6"></i>
+                                    <span class="text-truncate" style="max-width: 120px;"><?= htmlspecialchars($_SESSION['customer_name'] ?? 'Account') ?></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border-secondary">
+                                    <li><a class="dropdown-item small" href="#" onclick="SmartFitAuth.openProfileModal(); return false;"><i class="fa-solid fa-id-card me-2 text-info"></i> My Fit Profile</a></li>
+                                    <li><a class="dropdown-item small" href="#" onclick="SmartFitAuth.openWardrobeModal(); return false;"><i class="fa-solid fa-shirt me-2 text-warning"></i> My Wardrobe</a></li>
+                                    <li><hr class="dropdown-divider border-secondary"></li>
+                                    <li><a class="dropdown-item small text-danger" href="#" onclick="SmartFitAuth.logout(); return false;"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <button class="btn btn-outline-cyber btn-sm px-3 py-2 d-flex align-items-center gap-1" onclick="SmartFitAuth.openAuthModal()">
+                                <i class="fa-solid fa-user me-1 text-neon"></i>
+                                <span>Sign In</span>
+                            </button>
+                        <?php endif; ?>
+                    </div>
+
                     <!-- Admin Link -->
-                    <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>admin/index.php" class="btn btn-outline-cyber btn-sm px-3 py-2" title="Admin Portal">
-                        <i class="fa-solid fa-user-shield me-1"></i> Admin
+                    <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>admin/index.php" class="btn btn-dark border-secondary btn-sm px-3 py-2" title="Admin Portal">
+                        <i class="fa-solid fa-shield-halved text-muted me-1"></i> Admin
                     </a>
                 </div>
             </div>

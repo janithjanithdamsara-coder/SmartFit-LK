@@ -93,7 +93,13 @@ Online fashion retail in Sri Lanka and globally faces a staggering **30%–40% r
 - Manual drag, zoom scale slider, and opacity blend slider.
 - Snapshot capture & photo download for sharing.
 
-### 🔹 E. E-Commerce Storefront & Admin Portal
+### 🔹 E. Customer Authentication & "One-Scan, Forever Fitted" Profile
+- **User Onboarding:** Secure customer sign-in & registration (`/api/auth_customer.php`).
+- **One-Scan, Forever Fitted:** Customers scan their body once and save their estimated fit parameters (`saved_height`, `saved_shoulder`, `saved_waist`, `recommended_size`) permanently to their account.
+- **Persistent Personalization:** Subsequent logins automatically personalize the store catalog to their exact size.
+- **My Virtual Wardrobe:** Bookmark favorite try-on looks and garments to review or order later.
+
+### 🔹 F. E-Commerce Storefront & Admin Portal
 - Dynamic catalog filterable by category (Tees, Polos, Hoodies, Women's Tops) and gender.
 - Admin dashboard (`/admin`) for inventory management, product CRUD, transparent PNG overlay uploads, and scan KPI statistics.
 
@@ -106,7 +112,7 @@ Online fashion retail in Sri Lanka and globally faces a staggering **30%–40% r
 | **Client-Side AI / Vision** | **Google MediaPipe Pose** (`@mediapipe/pose`) | Real-time 33 human pose landmark detection via WebAssembly (WASM) & WebGL. |
 | **Frontend UI** | **HTML5, CSS3, Vanilla JS (ES6+), Bootstrap 5.3** | High-performance, zero-framework lightweight client execution. |
 | **AR & Graphics Engine** | **HTML5 Canvas 2D API** | Real-time affine matrix transforms, 3D contour gradient composite, and interactive dragging. |
-| **Backend & REST APIs** | **PHP 8.0+** | Modular REST JSON endpoints (`/api/calculate_size.php`, `/api/get_clothes.php`). |
+| **Backend & REST APIs** | **PHP 8.0+** | Modular REST JSON endpoints (`/api/auth_customer.php`, `/api/calculate_size.php`, `/api/get_clothes.php`). |
 | **Database** | **MySQL (XAMPP) & SQLite 3 (Fallback)** | Dual-driver PDO database architecture for high portability. |
 | **Communication** | **WhatsApp Click-to-Chat API** | Direct consumer ordering workflow. |
 
@@ -121,14 +127,15 @@ Online fashion retail in Sri Lanka and globally faces a staggering **30%–40% r
 ### Quick Start:
 1. Clone repository into your XAMPP `htdocs` directory:
    ```bash
-   git clone https://github.com/<your-username>/SmartFit-LK.git c:/xampp/htdocs/aicloth
+   git clone https://github.com/janithjanithdamsara-coder/SmartFit-LK.git c:/xampp/htdocs/aicloth
    ```
 2. Start **Apache** and **MySQL** in XAMPP Control Panel.
 3. Import database schema:
    - Open `http://localhost/phpmyadmin/`
-   - Import `database/schema.sql` (Creates `aicloth_db` and seeds products with size charts).
+   - Import `database/schema.sql` (Creates `aicloth_db` and seeds products, customers, and size charts).
 4. Access the web application:
    - **Customer Web Store:** `http://localhost/aicloth/`
+     - Demo Customer Account: `demo@smartfit.lk` / `demo123`
    - **Admin Management Portal:** `http://localhost/aicloth/admin/`
      - **Username:** `admin`
      - **Password:** `admin123`
@@ -139,7 +146,10 @@ Online fashion retail in Sri Lanka and globally faces a staggering **30%–40% r
 
 - **Event:** IntelliCon '26
 - **Organizer:** AIESEC in SLIIT / OC_Paradox
-- **Checkpoint:** Submission 2 — Build Checkpoint
+- **Checkpoint:** Submission 2 — Build Checkpoint (Week 1 & 2 Deliverables)
+- **Team Roster:**
+  - **Sandes Thameesha** — Lead Founder / Product Lead
+  - **Sahasra Janith** — Software Engineer
 - **Date:** October 2026
 
 ---

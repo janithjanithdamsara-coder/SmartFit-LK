@@ -181,3 +181,39 @@ CREATE TABLE `customer_scans` (
   `confidence_score` DECIMAL(4,1) NOT NULL,
   `scanned_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 7. Customers Table (Personalized Fit Profiles)
+CREATE TABLE IF NOT EXISTS `customers` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `full_name` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(150) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(20) DEFAULT NULL,
+  `gender` ENUM('mens', 'womens', 'unisex') DEFAULT 'mens',
+  `saved_height` DECIMAL(5,1) DEFAULT 172.0,
+  `saved_shoulder` DECIMAL(5,1) DEFAULT 44.0,
+  `saved_chest` DECIMAL(5,1) DEFAULT 98.0,
+  `saved_waist` DECIMAL(5,1) DEFAULT 80.0,
+  `recommended_size` VARCHAR(10) DEFAULT 'M',
+  `fit_preference` ENUM('snug', 'regular', 'oversized') DEFAULT 'regular',
+  `body_build` VARCHAR(50) DEFAULT 'Regular Athletic',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Seed Demo Customer (Sandes Thameesha: demo@smartfit.lk / demo123)
+INSERT INTO `customers` (`id`, `full_name`, `email`, `password`, `gender`, `saved_height`, `saved_shoulder`, `saved_chest`, `saved_waist`, `recommended_size`, `fit_preference`, `body_build`)
+VALUES (1, 'Sandes Thameesha', 'demo@smartfit.lk', '$2y$10$eE0m7a7qVf1Qd7H7wL6vE.vN6fJ.R8iQeT.m1NlC2qA0iL5eCq0mS', 'mens', 174.0, 44.5, 99.0, 81.0, 'M', 'regular', 'Regular Athletic')
+ON DUPLICATE KEY UPDATE `id` = `id`;
+
+-- 8. Customer Saved Try-On Looks / Wardrobe
+CREATE TABLE IF NOT EXISTS `customer_wardrobe` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `customer_id` INT NOT NULL,
+  `clothing_id` INT NOT NULL,
+  `saved_size` VARCHAR(10) NOT NULL,
+  `snapshot_url` TEXT DEFAULT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`clothing_id`) REFERENCES `clothing_items`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
