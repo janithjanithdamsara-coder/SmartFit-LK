@@ -1,6 +1,8 @@
 # 👗 SmartFit LK — AI-Assisted Body Fit Profile & Lowest Price Virtual Fitting System
 
-> **Submission 2: Build Checkpoint** | **IntelliCon '26** (Organized by AIESEC in SLIIT)
+> **Submission 2: Build Checkpoint** | **IntelliCon '26** (Organized by AIESEC in SLIIT)  
+> 🔗 **Public GitHub Repository:** [https://github.com/janithjanithdamsara-coder/SmartFit-LK](https://github.com/janithjanithdamsara-coder/SmartFit-LK)  
+> 🎥 **2-Minute Working Demo Video (Google Drive):** [Watch Live Video Demonstration](https://drive.google.com/file/d/17uSB_dGCN8zI25tctFwg0YyAbq4OAW6J/view?usp=sharing)
 
 ---
 
