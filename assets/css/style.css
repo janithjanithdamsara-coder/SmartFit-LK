@@ -1,0 +1,628 @@
+/* SmartFit AI - Premium Cyber-Luxury Fashion Design System */
+
+:root {
+    --bg-main: #090d16;
+    --bg-card: rgba(18, 24, 38, 0.75);
+    --bg-card-hover: rgba(28, 36, 56, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-glow: rgba(99, 102, 241, 0.4);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --neon-indigo: #6366f1;
+    --neon-purple: #8b5cf6;
+    --neon-cyan: #06b6d4;
+    --neon-emerald: #10b981;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+    --cyber-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --glow-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Typography & Brand */
+.brand-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+}
+
+.brand-sub {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    display: block;
+    color: var(--neon-cyan);
+    font-weight: 600;
+}
+
+.brand-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--glow-shadow);
+}
+
+.text-neon {
+    color: #818cf8 !important;
+}
+
+.text-cyan {
+    color: var(--neon-cyan) !important;
+}
+
+.text-emerald {
+    color: var(--neon-emerald) !important;
+}
+
+/* Navbar */
+.smart-navbar {
+    background: rgba(9, 13, 22, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.85rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--glow-shadow);
+}
+
+/* Hero Section */
+.hero-smart {
+    position: relative;
+    padding: 4rem 0 3rem;
+    overflow: hidden;
+}
+
+.hero-glow-bg {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 2.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-scan-glow {
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    transition: all 0.25s ease;
+}
+
+.btn-scan-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(99, 102, 241, 0.6);
+}
+
+.btn-outline-cyber {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-cyber:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--text-primary);
+    color: #fff;
+}
+
+/* Filter Pills & Gender Selector */
+.gender-selector {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: inline-flex;
+}
+
+.gender-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gender-btn.active {
+    background: var(--neon-indigo);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+}
+
+.size-pill-filter {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.size-pill-filter:hover, .size-pill-filter.active {
+    background: var(--neon-indigo);
+    border-color: var(--neon-indigo);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Product Cards */
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-glow);
+    box-shadow: var(--glow-shadow);
+}
+
+.product-img-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 125%; /* 4:5 Aspect Ratio */
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.product-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-badge-gender {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.product-badge-fit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(16, 185, 129, 0.9);
+    color: #000;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+}
+
+.product-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+}
+
+.product-brand {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.product-compare-price {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.size-pill-tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+.size-pill-tag.in-stock {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.size-pill-tag.out-of-stock {
+    opacity: 0.35;
+    text-decoration: line-through;
+}
+
+.size-pill-tag.recommended-match {
+    background: var(--neon-indigo);
+    border-color: var(--neon-indigo);
+    color: #fff;
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+}
+
+/* Scanner Viewport */
+.scanner-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    border: 2px solid var(--border-glow);
+    box-shadow: var(--glow-shadow);
+}
+
+#webcamVideo {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scaleX(-1); /* Mirror view */
+}
+
+#poseCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1);
+    pointer-events: none;
+}
+
+.scanner-overlay-guide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.scanner-crosshairs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 80%;
+    border: 1px dashed rgba(99, 102, 241, 0.6);
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+.scanner-status-pill {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glow);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    align-self: center;
+}
+
+.countdown-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Size Recommendation Card */
+.size-result-box {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid var(--border-glow);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.size-hero-letter {
+    font-size: 4.5rem;
+    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.confidence-bar-wrap {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.confidence-bar-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 999px;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Virtual Try-On Canvas */
+.tryon-stage-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 16px;
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+#tryonCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.tryon-controls {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* Modals */
+.modal-content.glass-card {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.custom-pills .nav-link {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    margin: 0 4px;
+}
+
+.custom-pills .nav-link.active {
+    background: var(--neon-indigo);
+    color: #fff;
+    border-color: var(--neon-indigo);
+}
+
+.custom-table {
+    --bs-table-bg: transparent;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.custom-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-bottom-color: var(--border-color);
+}
+
+.custom-table td {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-active-row {
+    background: rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* SmartFit LK - Lowest Price Match & Fit Profile Styles */
+.badge-gold {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #111827 !important;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.badge-silver {
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    color: #0f172a !important;
+    font-weight: 700;
+}
+
+.badge-bronze {
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    color: #fff !important;
+    font-weight: 700;
+}
+
+.card-lowest-price {
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.25) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-lowest-price::before {
+    content: "BEST VALUE";
+    position: absolute;
+    top: 10px;
+    right: -28px;
+    background: #f59e0b;
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 28px;
+    transform: rotate(45deg);
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
+.fit-profile-badge {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.category-fit-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}

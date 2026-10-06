@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 580" width="500" height="580">
+  <defs>
+    <linearGradient id="cropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272a" />
+      <stop offset="50%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <filter id="garmentShadowC" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <g filter="url(#garmentShadowC)">
+    <!-- Straps & Body -->
+    <path d="M 160,80 L 195,80 L 220,180 C 235,185 265,185 280,180 L 305,80 L 340,80 L 355,200 C 340,260 345,340 350,380 C 300,385 200,385 150,380 C 155,340 160,260 145,200 Z" fill="url(#cropGrad)" stroke="#3f3f46" stroke-width="2" />
+    <!-- White Side Athletic Racing Stripes -->
+    <path d="M 155,210 Q 165,300 158,375" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+    <path d="M 345,210 Q 335,300 342,375" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+    <!-- Deep Scoop Neckline -->
+    <path d="M 195,80 C 215,160 285,160 305,80" fill="none" stroke="#3f3f46" stroke-width="2" />
+    <!-- Carnage Chest Logo -->
+    <g transform="translate(205, 240) scale(0.6)">
+      <path d="M 5,20 L 25,5 L 45,20 L 35,22 L 25,12 L 15,22 Z" fill="#ffffff" opacity="0.95" />
+      <text x="52" y="20" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#ffffff" letter-spacing="2">CARNAGE</text>
+    </g>
+    <!-- Underbust Compression Band -->
+    <rect x="150" y="355" width="200" height="25" rx="3" fill="#09090b" stroke="#3f3f46" stroke-width="1.5" />
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 580" width="500" height="580">
+  <defs>
+    <linearGradient id="poloBlackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24272c" />
+      <stop offset="50%" stop-color="#181a1e" />
+      <stop offset="100%" stop-color="#101114" />
+    </linearGradient>
+    <linearGradient id="sleeveLGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1e22" />
+      <stop offset="100%" stop-color="#121316" />
+    </linearGradient>
+    <linearGradient id="collarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#33373d" />
+      <stop offset="100%" stop-color="#1a1c20" />
+    </linearGradient>
+    <filter id="garmentShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <g filter="url(#garmentShadow)">
+    <!-- Left Sleeve -->
+    <path d="M 140,85 L 35,175 L 75,235 L 145,175 Z" fill="url(#sleeveLGrad)" stroke="#2d3036" stroke-width="1.5" />
+    <!-- Right Sleeve -->
+    <path d="M 360,85 L 465,175 L 425,235 L 355,175 Z" fill="url(#sleeveLGrad)" stroke="#2d3036" stroke-width="1.5" />
+    
+    <!-- Torso Body -->
+    <path d="M 140,85 C 180,95 320,95 360,85 L 365,180 C 355,270 360,430 365,540 C 310,548 190,548 135,540 C 140,430 145,270 135,180 Z" fill="url(#poloBlackGrad)" stroke="#2d3036" stroke-width="2" />
+    
+    <!-- Athletic Contouring Side Seams -->
+    <path d="M 155,180 Q 170,330 155,520" fill="none" stroke="#2c3036" stroke-width="2" stroke-dasharray="4,2" opacity="0.6" />
+    <path d="M 345,180 Q 330,330 345,520" fill="none" stroke="#2c3036" stroke-width="2" stroke-dasharray="4,2" opacity="0.6" />
+    
+    <!-- Chest Muscle Contour Shadows -->
+    <path d="M 180,210 Q 250,235 320,210" fill="none" stroke="#0e1012" stroke-width="3" opacity="0.5" />
+    
+    <!-- Carnage High-Build Silicone Logo -->
+    <g transform="translate(190, 195) scale(0.65)">
+      <path d="M 5,20 L 25,5 L 45,20 L 35,22 L 25,12 L 15,22 Z" fill="#ffffff" opacity="0.9" />
+      <text x="52" y="20" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#ffffff" letter-spacing="2" opacity="0.95">CARNAGE</text>
+    </g>
+    
+    <!-- 1/4 Zipper Placket -->
+    <rect x="244" y="80" width="12" height="115" rx="3" fill="#15171a" stroke="#33373d" stroke-width="1.5" />
+    <line x1="250" y1="80" x2="250" y2="190" stroke="#71717a" stroke-width="2" stroke-dasharray="2,2" />
+    <!-- Metal Zipper Puller -->
+    <rect x="247" y="165" width="6" height="14" rx="2" fill="#d4d4d8" />
+    
+    <!-- Athletic Polo Collar (Folded V-Collar) -->
+    <!-- Left Collar Wing -->
+    <path d="M 180,72 Q 215,95 244,145 L 244,80 Q 215,62 180,72 Z" fill="url(#collarGrad)" stroke="#3a3e45" stroke-width="1.5" />
+    <!-- Right Collar Wing -->
+    <path d="M 320,72 Q 285,95 256,145 L 256,80 Q 285,62 320,72 Z" fill="url(#collarGrad)" stroke="#3a3e45" stroke-width="1.5" />
+    <!-- Back Neckline -->
+    <path d="M 180,72 C 215,55 285,55 320,72 C 285,65 215,65 180,72 Z" fill="#121316" stroke="#2a2c30" stroke-width="1" />
+
+    <!-- Hem Band -->
+    <path d="M 135,530 C 190,538 310,538 365,530 L 365,540 C 310,548 190,548 135,540 Z" fill="#121315" opacity="0.7" />
+  </g>
+</svg>

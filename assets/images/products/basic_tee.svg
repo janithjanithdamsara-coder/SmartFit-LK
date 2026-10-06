@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 580" width="500" height="580">
+  <defs>
+    <linearGradient id="basicTeeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <filter id="garmentShadowBasic" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <g filter="url(#garmentShadowBasic)">
+    <!-- Fitted Short Sleeves -->
+    <path d="M 125,95 L 30,195 L 75,255 L 132,205 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <path d="M 375,95 L 470,195 L 425,255 L 368,205 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Athletic Regular Torso Body -->
+    <path d="M 125,95 C 170,105 330,105 375,95 L 370,210 C 365,320 365,430 365,545 C 310,550 190,550 135,545 C 135,430 135,320 130,210 Z" fill="url(#basicTeeGrad)" stroke="#334155" stroke-width="2" />
+    
+    <!-- Minimal Crew Neck -->
+    <path d="M 185,82 C 215,115 285,115 315,82 C 285,70 215,70 185,82 Z" fill="#020617" stroke="#475569" stroke-width="2.5" />
+    
+    <!-- Minimalist SmartFit Chest Badge -->
+    <g transform="translate(190, 180)">
+      <circle cx="60" cy="20" r="16" fill="#0ea5e9" opacity="0.2"/>
+      <path d="M 52,20 L 58,26 L 68,14" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="60" y="48" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#94a3b8" text-anchor="middle" letter-spacing="2">SMARTFIT</text>
+    </g>
+  </g>
+</svg>

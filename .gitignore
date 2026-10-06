@@ -1,0 +1,15 @@
+# Environments & OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Temp access database
+acess/
+*.tmp

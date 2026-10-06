@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 580" width="500" height="580">
+  <defs>
+    <linearGradient id="teeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#33373e" />
+      <stop offset="50%" stop-color="#24272c" />
+      <stop offset="100%" stop-color="#181a1e" />
+    </linearGradient>
+    <filter id="garmentShadowT" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <g filter="url(#garmentShadowT)">
+    <!-- Drop Shoulder Sleeves -->
+    <path d="M 120,95 L 15,200 L 65,270 L 130,210 Z" fill="#24272c" stroke="#3b3f46" stroke-width="1.5" />
+    <path d="M 380,95 L 485,200 L 435,270 L 370,210 Z" fill="#24272c" stroke="#3b3f46" stroke-width="1.5" />
+    
+    <!-- Boxy Body -->
+    <path d="M 120,95 C 170,105 330,105 380,95 L 380,210 C 375,320 375,440 375,555 C 310,560 190,560 125,555 C 125,440 125,320 120,210 Z" fill="url(#teeGrad)" stroke="#3b3f46" stroke-width="2" />
+    
+    <!-- Thick Ribbed Crew Neck -->
+    <path d="M 180,82 C 210,120 290,120 320,82 C 290,68 210,68 180,82 Z" fill="#181a1e" stroke="#454952" stroke-width="2.5" />
+    
+    <!-- Oversized Streetwear High-Density Graphic Print -->
+    <g transform="translate(145, 230)">
+      <rect x="0" y="0" width="210" height="150" rx="6" fill="#101114" opacity="0.6" stroke="#3a3e46" stroke-width="1"/>
+      <text x="105" y="45" font-family="'Impact', 'Arial Black', sans-serif" font-size="32" fill="#e4e4e7" text-anchor="middle" letter-spacing="4">CARNAGE</text>
+      <text x="105" y="75" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#a1a1aa" text-anchor="middle" letter-spacing="6">HEAVYWEIGHT</text>
+      <line x1="30" y1="92" x2="180" y2="92" stroke="#6366f1" stroke-width="3" />
+      <text x="105" y="118" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#71717a" text-anchor="middle" letter-spacing="3">DIVISION 0992 // ATHLETIC</text>
+    </g>
+  </g>
+</svg>
