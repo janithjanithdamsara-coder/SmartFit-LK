@@ -21,6 +21,8 @@ Online fashion retail in Sri Lanka and globally faces a staggering **30%–40% r
 
 ## 🚀 2. System Architecture & Flow
 
+![SmartFit LK System Architecture Diagram](assets/SmartFit_Architecture_Diagram.png)
+
 ```
                       SMARTFIT LK
                            │
