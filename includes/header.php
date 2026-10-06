@@ -115,11 +115,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                             </button>
                         <?php endif; ?>
                     </div>
-
-                    <!-- Admin Link -->
-                    <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>admin/index.php" class="btn btn-dark border-secondary btn-sm px-3 py-2" title="Admin Portal">
-                        <i class="fa-solid fa-shield-halved text-muted me-1"></i> Admin
-                    </a>
                 </div>
             </div>
         </div>

@@ -96,7 +96,7 @@
             <div class="d-flex justify-content-center gap-3 my-3">
                 <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>index.php" class="text-muted text-decoration-none small hover-neon">Store</a>
                 <a href="#scan" onclick="openScannerModal(); return false;" class="text-muted text-decoration-none small hover-neon">AI Scanner</a>
-                <a href="<?= isset($assetPrefix) ? $assetPrefix : '' ?>admin/index.php" class="text-muted text-decoration-none small hover-neon">Admin Console</a>
+                <a href="#tryon" onclick="openTryonModal(); return false;" class="text-muted text-decoration-none small hover-neon">Virtual Fitting</a>
             </div>
             <div class="text-muted small border-top border-dark pt-3 mt-3">
                 &copy; <?= date('Y') ?> SmartFit LK. Built for IntelliCon '26 (AIESEC in SLIIT).

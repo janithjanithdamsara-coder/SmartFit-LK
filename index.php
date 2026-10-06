@@ -618,6 +618,9 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 <!-- ========================================== -->
 <!-- 5. CUSTOMER AUTH MODAL (LOGIN / REGISTER)  -->
 <!-- ========================================== -->

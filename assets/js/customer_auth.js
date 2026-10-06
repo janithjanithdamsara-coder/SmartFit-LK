@@ -101,7 +101,7 @@ const SmartFitAuth = {
         }
 
         try {
-            const res = await fetch('api/auth_customer.php', {
+            const res = await fetch('api/auth_customer.php?action=login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'login', email, password })
@@ -121,9 +121,12 @@ const SmartFitAuth = {
                 if (this.pendingFitProfileToSave) {
                     await this.saveFitProfile(this.pendingFitProfileToSave);
                     this.pendingFitProfileToSave = null;
-                } else if (data.customer.recommended_size && window.SmartFitApp) {
-                    window.SmartFitApp.filterBySize(data.customer.recommended_size);
                 }
+
+                // Smooth reload to sync session
+                setTimeout(() => {
+                    window.location.reload();
+                }, 400);
             } else {
                 this.showAlert(alertEl, data.error || 'Login failed. Please check credentials.', 'danger');
             }
@@ -146,7 +149,7 @@ const SmartFitAuth = {
         }
 
         try {
-            const res = await fetch('api/auth_customer.php', {
+            const res = await fetch('api/auth_customer.php?action=register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'register', full_name: fullName, email, password, gender })
@@ -166,6 +169,10 @@ const SmartFitAuth = {
                     await this.saveFitProfile(this.pendingFitProfileToSave);
                     this.pendingFitProfileToSave = null;
                 }
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 400);
             } else {
                 this.showAlert(alertEl, data.error || 'Registration failed.', 'danger');
             }
