@@ -63,23 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="POST" action="login.php">
                 <div class="mb-3">
-                    <label class="form-label small text-secondary">Username</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-dark border-secondary text-muted"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" name="username" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="admin" value="admin" required>
-                    </div>
+                    <label class="auth-label"><i class="fa-solid fa-user-shield text-neon"></i> <span>Admin Username</span></label>
+                    <input type="text" name="username" class="form-control auth-input shadow-none" placeholder="admin" value="admin" required autocomplete="username">
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label small text-secondary">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-dark border-secondary text-muted"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" name="password" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="admin123" value="admin123" required>
-                    </div>
+                    <label class="auth-label"><i class="fa-solid fa-lock text-neon"></i> <span>Master Password</span></label>
+                    <input type="password" name="password" class="form-control auth-input shadow-none" placeholder="admin123" value="admin123" required autocomplete="current-password">
                 </div>
 
                 <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold">
-                    <i class="fa-solid fa-right-to-bracket me-1"></i> Access Admin Console
+                    <i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Access Admin Console
                 </button>
             </form>
 

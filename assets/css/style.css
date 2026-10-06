@@ -626,3 +626,82 @@ body {
     align-items: center;
     gap: 6px;
 }
+
+/* SmartFit LK - Polished Auth Modal & Form Styling */
+.auth-input {
+    background-color: #0b1120 !important;
+    border: 1px solid rgba(99, 102, 241, 0.35) !important;
+    color: #f8fafc !important;
+    border-radius: 10px !important;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.92rem !important;
+    transition: all 0.25s ease !important;
+}
+
+.auth-input::placeholder {
+    color: #64748b !important;
+    font-size: 0.88rem;
+}
+
+.auth-input:focus {
+    background-color: #0f172a !important;
+    border-color: #818cf8 !important;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.35) !important;
+    color: #ffffff !important;
+}
+
+/* Chrome/Edge Autofill Background Fix (removes ugly light-blue box) */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover, 
+.auth-input:-webkit-autofill:focus, 
+.auth-input:-webkit-autofill:active {
+    -webkit-text-fill-color: #f8fafc !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0b1120 inset !important;
+    box-shadow: 0 0 0px 1000px #0b1120 inset !important;
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.auth-label {
+    color: #e2e8f0 !important;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0.35rem;
+}
+
+.auth-tabs-wrap {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.auth-tab-link {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    padding: 0.55rem 1rem !important;
+    color: #94a3b8 !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+.auth-tab-link.active {
+    background: var(--neon-indigo) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4) !important;
+}
+
+.demo-credentials-card {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px dashed rgba(99, 102, 241, 0.35);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

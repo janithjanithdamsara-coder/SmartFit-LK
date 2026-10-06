@@ -627,78 +627,114 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal fade" id="authCustomerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content glass-card border-secondary text-light">
-            <div class="modal-header border-secondary">
-                <div class="d-flex align-items-center gap-2">
-                    <div class="brand-badge"><i class="fa-solid fa-circle-user text-neon"></i></div>
+            <div class="modal-header border-secondary pb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="brand-badge bg-primary bg-opacity-25 p-2 rounded-circle border border-primary">
+                        <i class="fa-solid fa-user-shield text-neon fs-5"></i>
+                    </div>
                     <div>
-                        <h5 class="modal-title mb-0 fw-bold">SmartFit LK Account</h5>
-                        <small class="text-secondary" style="font-size: 0.75rem;">Save Your Fit Profile &amp; Wardrobe</small>
+                        <h5 class="modal-title mb-0 fw-bold">Customer Portal</h5>
+                        <small class="text-secondary" style="font-size: 0.78rem;">SmartFit LK &bull; Save Your Fit Profile &amp; Wardrobe</small>
                     </div>
                 </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             
-            <div class="modal-body p-4">
-                <ul class="nav nav-pills custom-pills mb-3 justify-content-center" role="tablist">
-                    <li class="nav-item flex-fill">
-                        <button class="nav-link active w-100" data-bs-toggle="pill" data-bs-target="#authLoginTab">
-                            <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
-                        </button>
-                    </li>
-                    <li class="nav-item flex-fill">
-                        <button class="nav-link w-100" data-bs-toggle="pill" data-bs-target="#authRegTab">
-                            <i class="fa-solid fa-user-plus me-1"></i> Create Account
-                        </button>
-                    </li>
-                </ul>
+            <div class="modal-body p-4 pt-3">
+                <!-- Segmented Tab Switcher -->
+                <div class="auth-tabs-wrap mb-4">
+                    <ul class="nav nav-pills w-100" role="tablist">
+                        <li class="nav-item flex-fill">
+                            <button class="nav-link auth-tab-link active w-100 d-flex align-items-center justify-content-center gap-2" data-bs-toggle="pill" data-bs-target="#authLoginTab">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                <span>Sign In</span>
+                            </button>
+                        </li>
+                        <li class="nav-item flex-fill">
+                            <button class="nav-link auth-tab-link w-100 d-flex align-items-center justify-content-center gap-2" data-bs-toggle="pill" data-bs-target="#authRegTab">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>Create Account</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
 
                 <div class="tab-content">
                     <!-- Sign In Tab -->
                     <div class="tab-pane fade show active" id="authLoginTab">
-                        <div id="authLoginAlert" class="d-none"></div>
+                        <div id="authLoginAlert" class="d-none mb-3"></div>
                         <form onsubmit="SmartFitAuth.handleLogin(event)">
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Email Address</label>
-                                <input type="email" id="authLoginEmail" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="name@example.com" required>
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-envelope text-neon"></i>
+                                    <span>Email Address</span>
+                                </label>
+                                <input type="email" id="authLoginEmail" class="form-control auth-input shadow-none" placeholder="name@example.com" required autocomplete="email">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Password</label>
-                                <input type="password" id="authLoginPassword" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="Enter your password" required>
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-lock text-neon"></i>
+                                    <span>Password</span>
+                                </label>
+                                <input type="password" id="authLoginPassword" class="form-control auth-input shadow-none" placeholder="••••••••" required autocomplete="current-password">
                             </div>
-                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold">
-                                <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
+                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold mt-2">
+                                <i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Sign In to Account
                             </button>
                         </form>
-                        <div class="text-center mt-3 small text-muted">
-                            Demo Account: <span class="text-neon">demo@smartfit.lk</span> / <span class="text-info">demo123</span>
+
+                        <!-- Quick Demo Credentials Box -->
+                        <div class="demo-credentials-card mt-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-bolt text-warning fs-6"></i>
+                                <div>
+                                    <div class="text-white small fw-bold" style="font-size: 0.8rem;">Demo Test Account</div>
+                                    <div class="text-secondary" style="font-size: 0.72rem;">demo@smartfit.lk &bull; demo123</div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-cyber py-1 px-2" style="font-size: 0.75rem;" onclick="SmartFitAuth.fillDemoCredentials()">
+                                <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Auto-Fill
+                            </button>
                         </div>
                     </div>
 
                     <!-- Register Tab -->
                     <div class="tab-pane fade" id="authRegTab">
-                        <div id="authRegAlert" class="d-none"></div>
+                        <div id="authRegAlert" class="d-none mb-3"></div>
                         <form onsubmit="SmartFitAuth.handleRegister(event)">
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Full Name</label>
-                                <input type="text" id="authRegName" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="e.g. Sandes Thameesha" required>
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-user text-neon"></i>
+                                    <span>Full Name</span>
+                                </label>
+                                <input type="text" id="authRegName" class="form-control auth-input shadow-none" placeholder="e.g. Sandes Thameesha" required autocomplete="name">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Email Address</label>
-                                <input type="email" id="authRegEmail" class="form-control bg-dark text-light border-secondary shadow-none" placeholder="name@example.com" required>
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-envelope text-neon"></i>
+                                    <span>Email Address</span>
+                                </label>
+                                <input type="email" id="authRegEmail" class="form-control auth-input shadow-none" placeholder="name@example.com" required autocomplete="email">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Password (Min. 6 chars)</label>
-                                <input type="password" id="authRegPassword" class="form-control bg-dark text-light border-secondary shadow-none" minlength="6" placeholder="Create a secure password" required>
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-lock text-neon"></i>
+                                    <span>Password (Min. 6 chars)</span>
+                                </label>
+                                <input type="password" id="authRegPassword" class="form-control auth-input shadow-none" minlength="6" placeholder="Create a secure password" required autocomplete="new-password">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label small text-muted">Gender / Apparel Preference</label>
-                                <select id="authRegGender" class="form-select bg-dark text-light border-secondary shadow-none">
+                                <label class="auth-label">
+                                    <i class="fa-solid fa-venus-mars text-neon"></i>
+                                    <span>Apparel Preference</span>
+                                </label>
+                                <select id="authRegGender" class="form-select auth-input shadow-none">
                                     <option value="mens">Men's Apparel</option>
                                     <option value="womens">Women's Apparel</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold">
-                                <i class="fa-solid fa-user-plus me-1"></i> Create Free Account
+                            <button type="submit" class="btn btn-scan-glow w-100 py-2 fw-bold mt-2">
+                                <i class="fa-solid fa-user-plus me-2"></i> Create Free Account
                             </button>
                         </form>
                     </div>

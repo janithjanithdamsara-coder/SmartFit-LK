@@ -89,6 +89,20 @@ const SmartFitAuth = {
         }
     },
 
+    fillDemoCredentials: function() {
+        const emailEl = document.getElementById('authLoginEmail');
+        const passEl = document.getElementById('authLoginPassword');
+        if (emailEl && passEl) {
+            emailEl.value = 'demo@smartfit.lk';
+            passEl.value = 'demo123';
+            const loginTabBtn = document.querySelector('[data-bs-target="#authLoginTab"]');
+            if (loginTabBtn) {
+                const tab = bootstrap.Tab.getOrCreateInstance(loginTabBtn);
+                tab.show();
+            }
+        }
+    },
+
     handleLogin: async function(e) {
         if (e) e.preventDefault();
         const email = document.getElementById('authLoginEmail').value.trim();
